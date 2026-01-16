@@ -1,53 +1,88 @@
-# Next.js & HeroUI Template
+# FC Ten Thousand Hours
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+Application web conçue pour vous aider à **suivre et gérer vos sessions de travail** afin d’atteindre l’expertise dans n’importe quel domaine. Inspirée du concept des **10 000 heures de pratique délibérée**, cette application offre un moyen simple et interactif de visualiser vos progrès.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+---
 
-## Technologies Used
+## 🛠 Technologies
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- **Next.js** – Framework React pour du rendu serveur et des performances optimales  
+- **TypeScript** – JavaScript typé pour un code plus sûr et maintenable  
+- **TailwindCSS** – Framework CSS utilitaire pour des interfaces modernes et responsives  
+- **HeroUI** – Bibliothèque de composants pour une UI rapide et élégante  
 
-## How to Use
+---
 
-### Use the template with create-next-app
+## ⚡ Fonctionnalités
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- **Suivi des sessions de travail** : Début et fin pour chaque domaine ou compétence (ex : JavaScript, jeux de société, menuiserie…)  
+- **Suivi de progression** : Barres de progression indiquant votre avancement vers le seuil symbolique des **10 000 heures**  
+- **Badges et récompenses** : Gagnez des badges selon votre régularité et persévérance :  
+  - `Consistant` – pour une pratique régulière  
+  - `Persévérant` – pour un engagement sur le long terme  
+  - `Expert 10 000h` – lorsque vous atteignez les 10 000 heures  
+- **Multi-domaines** : Gérez vos sessions dans plusieurs domaines différents  
+- **Design responsive** : Compatible desktop, tablette et mobile  
 
+---
+
+## 📸 Captures d’écran
+
+*(Ajouter ici des captures montrant le suivi des sessions, les barres de progression et les badges)*
+
+---
+
+## 🚀 Démarrage
+
+### Cloner le dépôt
 ```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+git clone https://github.com/florentcussatlegras/ten-thousand-hours.git
+cd ten-thousand-hours
 
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
+Installer les dépendances
 npm install
-```
 
-### Run the development server
-
-```bash
+Lancer en développement
 npm run dev
-```
 
-### Setup pnpm (optional)
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+Ouvrez http://localhost:3000
+ dans votre navigateur.
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+Compiler pour la production
+npm run build
+npm start
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+🎯 Utilisation
 
-## License
+Créez une session en indiquant le domaine/compétence, l’heure de début et l’heure de fin.
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+Suivez le nombre total d’heures accumulées par domaine.
+
+Visualisez votre progression grâce aux barres de progression.
+
+Gagnez des badges au fil de vos heures et de vos jalons.
+
+🌐 Démo en ligne
+
+https://fc-ten-thousand-hours.com
+
+📂 Structure du projet (optionnel)
+/components  → Composants React
+/pages       → Pages Next.js
+/public      → Images et assets
+/styles      → Configuration TailwindCSS
+
+💡 Améliorations futures
+
+Authentification et tableaux de bord personnalisés
+
+Export des données de session pour analyse
+
+Notifications et rappels pour pratiquer régulièrement
+
+Mode sombre et accessibilité améliorée
+
+⚖️ Licence
+
+Ce projet est open source (Licence MIT)
