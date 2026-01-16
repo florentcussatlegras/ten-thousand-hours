@@ -38,22 +38,29 @@ Application web conçue pour vous aider à **suivre et gérer vos sessions de tr
 ```bash
 git clone https://github.com/florentcussatlegras/ten-thousand-hours.git
 cd ten-thousand-hours
+```
 
-Installer les dépendances
+### Installer les dépendances
+```bash
 npm install
+```
 
-Lancer en développement
+### Lancer en développement
+```bash
 npm run dev
+```
 
+### Ouvrez http://localhost:3000 dans votre navigateur.
 
-Ouvrez http://localhost:3000
- dans votre navigateur.
-
-Compiler pour la production
+### Compiler pour la production
+```bash
 npm run build
 npm start
+```
 
-🎯 Utilisation
+---
+
+## 🎯 Utilisation
 
 Créez une session en indiquant le domaine/compétence, l’heure de début et l’heure de fin.
 
@@ -63,17 +70,24 @@ Visualisez votre progression grâce aux barres de progression.
 
 Gagnez des badges au fil de vos heures et de vos jalons.
 
-🌐 Démo en ligne
+---
+
+## 🌐 Démo en ligne
 
 https://fc-ten-thousand-hours.com
 
-📂 Structure du projet (optionnel)
+---
+
+## 📂 Structure du projet (optionnel)
+
 /components  → Composants React
 /pages       → Pages Next.js
 /public      → Images et assets
 /styles      → Configuration TailwindCSS
 
-💡 Améliorations futures
+---
+
+## 💡 Améliorations futures
 
 Authentification et tableaux de bord personnalisés
 
@@ -83,6 +97,8 @@ Notifications et rappels pour pratiquer régulièrement
 
 Mode sombre et accessibilité améliorée
 
-⚖️ Licence
+---
+
+## ⚖️ Licence
 
 Ce projet est open source (Licence MIT)
