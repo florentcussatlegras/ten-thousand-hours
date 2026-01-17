@@ -79,15 +79,6 @@ https://fc-ten-thousand-hours.com
 
 ---
 
-## 📂 Structure du projet (optionnel)
-
-/components  → Composants React
-/pages       → Pages Next.js
-/public      → Images et assets
-/styles      → Configuration TailwindCSS
-
----
-
 ## 💡 Améliorations futures
 
 - Authentification et tableaux de bord personnalisés
