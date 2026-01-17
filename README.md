@@ -1,6 +1,6 @@
-# FC Ten Thousand Hours
+# fc-ten-thousand-hours
 
-Application web conçue pour vous aider à **suivre et gérer vos sessions de travail** afin d’atteindre l’expertise dans n’importe quel domaine. Inspirée du concept des **10 000 heures de pratique délibérée**, cette application offre un moyen simple et interactif de visualiser vos progrès.
+**FC My Bags** est une application web conçue pour vous aider à **suivre et gérer vos sessions de travail** afin d’atteindre l’expertise dans n’importe quel domaine. Inspirée du concept des **10 000 heures de pratique délibérée**, cette application offre un moyen simple et interactif de visualiser vos progrès.
 
 ---
 
@@ -26,13 +26,14 @@ Application web conçue pour vous aider à **suivre et gérer vos sessions de tr
 
 ---
 
-## 📸 Captures d’écran
+## ⚙️ Installation et développement local
 
-*(Ajouter ici des captures montrant le suivi des sessions, les barres de progression et les badges)*
+### Prérequis
 
----
-
-## 🚀 Démarrage
+- Docker & Docker Compose
+- PHP 8.4+
+- Composer
+- Node.js / npm ou yarn
 
 ### Cloner le dépôt
 ```bash
@@ -62,13 +63,13 @@ npm start
 
 ## 🎯 Utilisation
 
-Créez une session en indiquant le domaine/compétence, l’heure de début et l’heure de fin.
+- Créez une session en indiquant le domaine/compétence, l’heure de début et l’heure de fin.
 
-Suivez le nombre total d’heures accumulées par domaine.
+- Suivez le nombre total d’heures accumulées par domaine.
 
-Visualisez votre progression grâce aux barres de progression.
+- Visualisez votre progression grâce aux barres de progression.
 
-Gagnez des badges au fil de vos heures et de vos jalons.
+- Gagnez des badges au fil de vos heures et de vos jalons.
 
 ---
 
@@ -89,13 +90,13 @@ https://fc-ten-thousand-hours.com
 
 ## 💡 Améliorations futures
 
-Authentification et tableaux de bord personnalisés
+- Authentification et tableaux de bord personnalisés
 
-Export des données de session pour analyse
+- Export des données de session pour analyse
 
-Notifications et rappels pour pratiquer régulièrement
+- Notifications et rappels pour pratiquer régulièrement
 
-Mode sombre et accessibilité améliorée
+- Mode sombre et accessibilité améliorée
 
 ---
 
