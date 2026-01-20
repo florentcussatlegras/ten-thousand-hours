@@ -248,7 +248,7 @@ export default function NavBarClient({ session }: { session: any }) {
                         as="button"
                         className="transition-transform cursor-pointer"
                         color="primary"
-                        name="Jason Hughes"
+                        name="Florent Cussatlegras"
                         size="sm"
                         src={finalSession.user.image}
                       />
@@ -262,7 +262,7 @@ export default function NavBarClient({ session }: { session: any }) {
                     aria-label="profil"
                     variant="flat"
                     classNames={{
-                      base: "bg-white dark:bg-dark-bg border border-zinc-200 dark:border-zinc-800",
+                      base: "bg-white dark:bg-dark-bg border border-zinc-200",
                     }}
                   >
                     <DropdownItem
