@@ -258,7 +258,13 @@ export default function NavBarClient({ session }: { session: any }) {
                       </button>
                     )}
                   </DropdownTrigger>
-                  <DropdownMenu aria-label="profil" variant="flat">
+                  <DropdownMenu
+                    aria-label="profil"
+                    variant="flat"
+                    classNames={{
+                      base: "bg-white dark:bg-dark-bg",
+                    }}
+                  >
                     <DropdownItem
                       key="profile"
                       className="gap-2 bg-default-200 flex flex-row"
@@ -272,18 +278,27 @@ export default function NavBarClient({ session }: { session: any }) {
                       </Link>
                     </DropdownItem>
                     <DropdownItem key="settings">
-                      <Link href="/settings" className="text-md gap-1 text-black dark:text-gray-200">
+                      <Link
+                        href="/settings"
+                        className="text-md gap-1 text-black dark:text-gray-200"
+                      >
                         <Settings />
                         Mes paramètres
                       </Link>
                     </DropdownItem>
                     <DropdownItem key="about">
-                      <Link href="/about" className="text-md gap-1 text-black dark:text-gray-200">
+                      <Link
+                        href="/about"
+                        className="text-md gap-1 text-black dark:text-gray-200"
+                      >
                         <HelpCircle />A propos
                       </Link>
                     </DropdownItem>
                     <DropdownItem key="contact">
-                      <Link href="/contact" className="text-md gap-1 text-black dark:text-gray-200">
+                      <Link
+                        href="/contact"
+                        className="text-md gap-1 text-black dark:text-gray-200"
+                      >
                         <Mail />
                         Contact
                       </Link>
@@ -388,16 +403,25 @@ export default function NavBarClient({ session }: { session: any }) {
                   <Calendar className="text-gray-800" /> Calendrier
                 </Link>
 
-                <Link href="/settings" className="text-md gap-2 text-black text-sm">
+                <Link
+                  href="/settings"
+                  className="text-md gap-2 text-black text-sm"
+                >
                   <Settings />
                   Mes paramètres
                 </Link>
 
-                <Link href="/about" className="text-md gap-2 text-black text-sm">
+                <Link
+                  href="/about"
+                  className="text-md gap-2 text-black text-sm"
+                >
                   <HelpCircle />A propos
                 </Link>
 
-                <Link href="/contact" className="text-md gap-2 text-black text-sm">
+                <Link
+                  href="/contact"
+                  className="text-md gap-2 text-black text-sm"
+                >
                   <Mail />
                   Contact
                 </Link>
