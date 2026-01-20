@@ -30,7 +30,7 @@ export default async function ResetPasswordPage({
     //   </div>
     // </div>
 
-    <Card className="w-2/3 flex flex-col items-center p-6 border-default-200" shadow="none">
+    <Card className="w-2/3 flex flex-col items-center p-6 border-default-200 bg-white dark:bg-content1" shadow="none">
         <CardHeader className="flex flex-col gap-2 mb-4 items-start">
             <h1 className="text-4xl font-bold mb-4 text-default-600">Réinitialiser votre mot de passe</h1>
             <p className="text-mute-foreground">

@@ -6,7 +6,7 @@ import { SignInOauthButton } from "@/components/sign-in-oauth-button";
 
 export default function SignInPage() {
   return (
-      <Card className="flex flex-col items-center py-6 border-default-200 w-full md:w-2/3 border" shadow="none">
+      <Card className="flex flex-col items-center py-6 border-default-200 w-full md:w-2/3 border bg-white dark:bg-content1" shadow="none">
           <CardHeader className="flex flex-col gap-2 w-full">
               <h1 className="text-4xl font-bold mb-4 text-default-600">Identification</h1>
               <div className="flex max-w-full gap-6 items-center">

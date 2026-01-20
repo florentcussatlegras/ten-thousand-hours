@@ -1,9 +1,6 @@
 "use client";
 
-import { ChangePasswordForm } from '@/components/change-password-form'
-import { UpdateUserForm } from '@/components/update-user-form'
 import { Button, Card, Form, Input, Textarea } from '@heroui/react'
-import React from 'react'
 import { useSession } from '../lib/auth-client'
 
 export default function ContactForm () {
