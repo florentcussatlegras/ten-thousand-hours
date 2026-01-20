@@ -262,7 +262,8 @@ export default function NavBarClient({ session }: { session: any }) {
                     aria-label="profil"
                     variant="flat"
                     classNames={{
-                      base: "bg-white dark:bg-content1 border-none shadow-none ring-0",
+                      base: "bg-white dark:bg-content1 border-none shadow-none ring-0 outline-none",
+                      list: "border-none shadow-none ring-0 outline-none",
                     }}
                   >
                     <DropdownItem
