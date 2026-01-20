@@ -244,7 +244,7 @@ export default function NavBarClient({ session }: { session: any }) {
                   placement="bottom-end"
                   classNames={{
                     content:
-                      "bg-white dark:bg-content1 shadow-none border-none ring-0 outline-none",
+                      "bg-white dark:bg-content1",
                   }}
                 >
                   <DropdownTrigger>
