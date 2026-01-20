@@ -240,7 +240,13 @@ export default function NavBarClient({ session }: { session: any }) {
               </Link>
               <ThemeSwitch />
               <div className="hidden md:flex">
-                <Dropdown placement="bottom-end">
+                <Dropdown
+                  placement="bottom-end"
+                  classNames={{
+                    content:
+                      "bg-white dark:bg-content1 shadow-none border-none ring-0 outline-none",
+                  }}
+                >
                   <DropdownTrigger>
                     {finalSession.user.image ? (
                       <Avatar
