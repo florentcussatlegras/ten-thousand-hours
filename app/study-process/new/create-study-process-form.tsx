@@ -62,7 +62,7 @@ export default function StudyProcessCreateForm({
 
   return (
     <Card
-      className="flex flex-col items-center p-6 bg-white dark:bg-content1"
+      className="flex flex-col items-center p-6 bg-white dark:bg-content1 w-full md:w-2/3 lg:w-1/2"
     >
       <CardHeader className="flex flex-col gap-2 mb-4 items-start p-0">
         <h1 className="text-4xl font-bold mb-4 text-default-600 p-0">
@@ -76,7 +76,7 @@ export default function StudyProcessCreateForm({
       <CardBody className="overflow-x-hidden p-0 w-full">
         <Form
           action={formAction}
-          className="space-y-8 w-full md:w-2/3 lg:w-1/2"
+          className="space-y-8"
         >
           <Input type="hidden" name="topicId" value={String(currentTopicId)} />
 
