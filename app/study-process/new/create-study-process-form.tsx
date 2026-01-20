@@ -63,7 +63,6 @@ export default function StudyProcessCreateForm({
   return (
     <Card
       className="flex flex-col items-center p-6 bg-white dark:bg-content1"
-      shadow="none"
     >
       <CardHeader className="flex flex-col gap-2 mb-4 items-start p-0">
         <h1 className="text-4xl font-bold mb-4 text-default-600 p-0">
