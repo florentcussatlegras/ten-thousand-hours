@@ -1,6 +1,6 @@
 import { Hero } from "@/components/hero";
 
-const urlImageHero = "/illustration-books-and-desk.jpg";
+const urlImageHero = "/hand-drawn-resignation-illustration.png";
 
 export default function SignInLayout({
   children,
