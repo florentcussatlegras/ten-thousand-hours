@@ -203,7 +203,7 @@ export default function ListStudiesSession({
                 <DropdownItem key="view">
                   <button
                     onClick={() => handleOpenModalView(studySession)}
-                    className="p-0 h-[20px] bg-white flex flex-row gap-2 items-center cursor-pointer hover:bg-default active:bg-default"
+                    className="p-0 h-[20px] flex flex-row gap-2 items-center cursor-pointer"
                   >
                     <EyeIcon />
                     <span>Voir les détails</span>
