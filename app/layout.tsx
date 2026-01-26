@@ -162,7 +162,7 @@ export default function RootLayout({
       <body
         suppressHydrationWarning
         className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
+          "min-h-screen text-foreground bg-background dark:bg-dark-bg font-sans antialiased",
           // fontSans.variable,
           geist.className,
           clashDisplay.className,
