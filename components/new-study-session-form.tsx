@@ -96,7 +96,7 @@ export const NewStudySessionForm = ({
   }).format(dateCreation.toDate(getLocalTimeZone()));
 
   return (
-    <Card className="relative p-4 w-full lg:w-2/5 rounded-2xl bg-white dark:bg-dark-bg">
+    <Card className="relative p-4 w-full lg:w-2/5 rounded-2xl bg-white dark:bg-content1">
       <CardBody>
         <div className="flex flex-col gap-4">
           <Form
