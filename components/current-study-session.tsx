@@ -302,7 +302,7 @@ export function CurrentStudySession() {
           <Button
             onPress={modal1.onOpen}
             type="submit"
-            className="text-white rounded-full bg-sky-500 dark:bg-default-500"
+            className="text-white rounded-full bg-sky-500"
           >
             <Play />
             {/* <span>Lancer une nouvelle session </span> */}
