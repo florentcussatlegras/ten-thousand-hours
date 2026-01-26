@@ -51,7 +51,7 @@ export default function WeekCalendarWithHours({
         <div className="inline-block min-w-full w-max relative">
           {/* Overlay loader */}
           {isLoading && (
-            <div className="absolute inset-0 z-50 flex items-start pt-80 justify-center bg-white/70 backdrop-blur-sm">
+            <div className="absolute inset-0 z-50 flex items-start pt-80 justify-center bg-white/70 dark:bg-content1 backdrop-blur-sm">
               <ThreeDotsLoader />
             </div>
           )}
