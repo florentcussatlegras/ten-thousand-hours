@@ -161,7 +161,7 @@ export default function DetailsStudyProcess({
             <CheckCircle size={50} />
           </div>
         ) : (
-          <div className="ml-auto flex items-center gap-4 text-neutral-600 text-xs md:text-sm uppercase">
+          <div className="ml-auto flex items-center gap-4 text-neutral-600 dark:text-white text-xs md:text-sm uppercase">
             {studyProcess.totalSeconds === 0 ? (
               <span>
                 Lancez-vous ! C'est toujours le premier pas le plus difficile
