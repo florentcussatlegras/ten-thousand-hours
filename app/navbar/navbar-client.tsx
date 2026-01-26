@@ -201,32 +201,6 @@ export default function NavBarClient({ session }: { session: any }) {
                   <span className="hidden xl:block text-sm">Calendrier</span>
                 </Link>
               </NavbarItem>
-              {/* <NavbarItem
-                className="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold data-[active=true]:text-primary"
-                // data-active="true"
-              >
-                <Link
-                  className="relative items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium no-underline hover:opacity-hover active:opacity-disabled transition-opacity flex gap-2 text-inherit"
-                  href="/about"
-                  data-react-aria-pressable="true"
-                  role="link"
-                  aria-current="page"
-                >
-                  <HelpCircle className="text-gray-800" />
-                  <span className="hidden 2xl:block text-sm">A propos</span>
-                </Link>
-              </NavbarItem>
-              <NavbarItem className="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold data-[active=true]:text-primary">
-                <Link
-                  className="relative items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium no-underline hover:opacity-hover active:opacity-disabled transition-opacity flex gap-2 text-inherit"
-                  href="/contact"
-                  data-react-aria-pressable="true"
-                  role="link"
-                >
-                  <Mail className="text-gray-800" />
-                  <span className="hidden 2xl:block text-sm">Contact</span>
-                </Link>
-              </NavbarItem> */}
             </NavbarContent>
           </NavbarContent>
         )}
@@ -235,9 +209,6 @@ export default function NavBarClient({ session }: { session: any }) {
           {finalSession?.user ? (
             <>
               <CurrentStudySession />
-              <Link href="https://github.com/florentcussatlegras/tenthousandshours">
-                <GithubIcon />
-              </Link>
               <ThemeSwitch />
               <div className="hidden md:flex">
                 <Dropdown
