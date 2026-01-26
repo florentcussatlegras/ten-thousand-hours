@@ -151,7 +151,7 @@ export default function NavBarClient({ session }: { session: any }) {
         <NavbarBrand className="hidden md:flex md:w-1/10 md:max-w-1/10 lg:w-1/4 lg:min-w-1/4">
           <Link href="/" className="text-default-600 hidden md:flex">
             {/* <Image src="/logo-10000.png" width={80} /> */}
-            <p className="hidden lg:flex font-extrabold text-4xl text-sky-500 dark:text-white brand-title font-[Cabinet]">
+            <p className="hidden lg:flex font-extrabold text-4xl text-sky-500 brand-title font-[Cabinet]">
               Ten Thousand Hours
             </p>
           </Link>
