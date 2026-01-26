@@ -425,7 +425,7 @@ export function CurrentStudySession() {
                       <div className="flex flex-row gap-2">
                         <Button
                           type="button"
-                          className="bg-sky-500 dark:bg-default-500 text-white dark:text-white"
+                          className="bg-sky-500 text-white"
                           onPress={handleLaunchSession}
                           isDisabled={currentTopicId === ""}
                         >
