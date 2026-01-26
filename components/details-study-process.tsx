@@ -145,7 +145,7 @@ export default function DetailsStudyProcess({
     <Card className="rounded-2xl relative p-4 bg-white dark:bg-content1">
       <CardHeader className="flex gap-2 items-start">
         {/* <h2 className="font-bold text-sky-500">{studyProcess.topic.name}</h2> */}
-        <span className="text-default-500 text-xs md:text-sm mt-0 md:mt-2 xl:mt-4">
+        <span className="text-default-500 dark:text-white text-xs md:text-sm mt-0 md:mt-2 xl:mt-4">
           Apprentissage débuté le {intl.format(studyProcess.createdAt)}
         </span>
         {studyProcess.totalSeconds && studyProcess.totalSeconds >= 36000000 ? (
