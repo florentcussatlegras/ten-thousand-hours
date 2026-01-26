@@ -100,7 +100,7 @@ export default function MasteryClient({
         <section className="lg:col-span-2 space-y-6">
  
             {mastered.length === 0 && (
-              <div className="p-6 border border-gray-200 rounded-lg text-default-500">
+              <div className="p-6 border border-gray-200 rounded-lg text-default-500 dark:text-white">
                 Vous n'avez pas encore atteint 10 000 heures sur une matière.
               </div>
             )}
