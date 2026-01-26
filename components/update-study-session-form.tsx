@@ -87,7 +87,7 @@ export function UpdateStudySessionForm({
   }).format(dateCreation.toDate(getLocalTimeZone()));
 
   return (
-    <Card className="rounded-2xl relative p-4 w-2/5 bg-white dark:bg-dark-bg">
+    <Card className="rounded-2xl relative p-4 w-2/5 bg-white dark:bg-content1">
       <CardBody>
         <div className="flex flex-col gap-4">
           <Form
