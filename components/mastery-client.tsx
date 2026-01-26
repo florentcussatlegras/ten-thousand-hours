@@ -91,7 +91,7 @@ export default function MasteryClient({
                   </div>
                 );
               })}
-              <Link href="/studies" className="text-sm px-3 py-1 bg-sky-500 text-white rounded-md dark:bg-gray-600">Voir tous mes apprentissages</Link>
+              <Link href="/studies" className="text-sm px-3 py-1 bg-sky-500 text-white rounded-md">Voir tous mes apprentissages</Link>
             </div>
           </div>
         </aside>
