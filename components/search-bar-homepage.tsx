@@ -111,7 +111,7 @@ export default function SearchBarHomepage({ topics }: { topics: TopicsProps[] })
               ],
             },
           }}
-          placeholder="Exple: saxophone, javascript, maçonnerie..."
+          placeholder="Exple: javascript, mongodb..."
           popoverProps={{
             offset: 10,
             classNames: {
