@@ -125,25 +125,6 @@ export default function ListStudiesSession({
     );
   }, [visibleColumns]);
 
-  // const filteredItems = React.useMemo(() => {
-  //   let filteredUsers = [...studySessions];
-
-  //   if (hasSearchFilter) {
-  //     const dateStartFilter = new Date(filterValue.start.year, filterValue.start.month, filterValue.start.day);
-  //     const dateEndFilter = new Date(filterValue.end.year, filterValue.end.month, filterValue.end.day);
-
-  //     console.log(getFilterStudySessions(dateStartFilter, dateEndFilter));
-  //   }
-
-  //   // if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
-  //   //   filteredUsers = filteredUsers.filter((user) =>
-  //   //     Array.from(statusFilter).includes(user.status),
-  //   //   );
-  //   // }
-
-  //   return filteredUsers;
-  // }, [studySessions, filterValue, statusFilter]);
-
   const pages = Math.ceil(filteredItems.length / rowsPerPage) || 1;
 
   const items = React.useMemo(() => {
@@ -304,56 +285,6 @@ export default function ListStudiesSession({
             />
             <Button onPress={onClear}>Effacer</Button>
           </div>
-          <div className="flex gap-3">
-            {/* <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
-                  variant="flat"
-                >
-                  Status
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={statusFilter}
-                selectionMode="multiple"
-                onSelectionChange={setStatusFilter}
-              >
-                {statusOptions.map((status) => (
-                  <DropdownItem key={status.uid} className="capitalize">
-                    {capitalize(status.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown> */}
-            {/* <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
-                  variant="flat"
-                >
-                  Columns
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={visibleColumns}
-                selectionMode="multiple"
-                onSelectionChange={setVisibleColumns}
-              >
-                {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize">
-                    {capitalize(column.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown> */}
-          </div>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-default-400 text-small">
@@ -425,7 +356,7 @@ export default function ListStudiesSession({
   }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
 
   return (
-    <Card radius="none" className="w-full lg:w-2/3 px-6 py-8 rounded-2xl bg-white dark:bg-dark-bg">
+    <Card radius="none" className="w-full lg:w-2/3 px-6 py-8 rounded-2xl bg-white dark:bg-content1">
       <div>
         <ModalStudySessionView
           isOpen={isOpen}
