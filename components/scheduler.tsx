@@ -37,7 +37,10 @@ import {
 import { useEffect, useState } from "react";
 import { parseDate, getLocalTimeZone } from "@internationalized/date";
 import { StudySession, Topic } from "@prisma/client";
-import { fetchStudySessionsPerDay, getTopicsOfaUser } from "@/app/actions/actions";
+import {
+  fetchStudySessionsPerDay,
+  getTopicsOfaUser,
+} from "@/app/actions/actions";
 import { useDateFormatter } from "@react-aria/i18n";
 import ModalStudySessionView from "./modal-study-session-view";
 import { useSession } from "@/app/lib/auth-client";
@@ -48,7 +51,6 @@ import Link from "next/link";
 import { WeekCalendar } from "./week-calendar";
 import { DayCalendar } from "./day-calendar";
 import WeekCalendarWithHours from "./week-calendar-with-hours";
-
 
 function getCurrentWeek(currentDate: Date) {
   let i = currentDate.getDay();
@@ -132,7 +134,11 @@ export const CustomCheckbox = (props: any) => {
           content: styles.content(),
         }}
         color="secondary"
-        startContent={isSelected ? <CheckIcon size={16} className="ml-1 text-white" /> : null}
+        startContent={
+          isSelected ? (
+            <CheckIcon size={16} className="ml-1 text-white" />
+          ) : null
+        }
         variant="faded"
         // {...getLabelProps()}
       >
@@ -153,15 +159,14 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
   const [currentWeek, setCurrentWeek] = useState(getCurrentWeek(currentDate));
 
   const [valueDatePicker, setValueDatePicker] = useState<any>(
-    parseDate(currentDate.toISOString().substring(0, 10))
+    parseDate(currentDate.toISOString().substring(0, 10)),
   );
   const [studySessions, setStudySessions] = useState<any>([]);
   const [studySessionsFilter, setStudySessionsFilter] = useState<any>([]);
   // const [studySessionToView, setStudySessionToView] = useState(null);
   const [studySessionsPerDay, setStudySessionsPerDay] = useState<any>([]);
-  const [studySessionsPerDayFilter, setStudySessionsPerDayFilter] = useState<any>(
-    []
-  );
+  const [studySessionsPerDayFilter, setStudySessionsPerDayFilter] =
+    useState<any>([]);
 
   const [topics, setTopics] = useState<any>([]);
   const [displayTab, setDisplayTab] = useState<string>("day");
@@ -173,88 +178,87 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
   const [isGridLoading, setIsGridLoading] = useState(false);
 
   useEffect(() => {
-  if (isPending) return;
-  if (!session?.user?.id) return;
+    if (isPending) return;
+    if (!session?.user?.id) return;
 
-  let cancelled = false;
+    let cancelled = false;
 
-  async function loadAll() {
-    setIsGridLoading(true);
+    async function loadAll() {
+      setIsGridLoading(true);
 
-    try {
-      const getStudySessions = async () => {
-        const newStudySessions = await fetchStudySessionsPerDay(
-          String(session?.user.id),
-          currentDate
-        );
-        if (cancelled) return;
-
-        setStudySessions(newStudySessions);
-
-        if (groupSelected.length !== 0) {
-          const newStudySessionsFilter = newStudySessions.filter((item: any) =>
-            groupSelected.includes(item.topic_id)
+      try {
+        const getStudySessions = async () => {
+          const newStudySessions = await fetchStudySessionsPerDay(
+            String(session?.user.id),
+            currentDate,
           );
-          setStudySessionsFilter(newStudySessionsFilter);
-        } else {
-          setStudySessionsFilter(newStudySessions);
-        }
-      }
+          if (cancelled) return;
 
-      const getStudySessionsPerDay = async () => {
-        let newStudySessionsPerDay: any[] = [];
+          setStudySessions(newStudySessions);
 
-        const getStudySessionPerDay = async (day: any) =>
-          await fetchStudySessionsPerDay(String(session?.user.id), day);
-
-        for (let index = 0; index < currentWeek.length; index++) {
-          let day = currentWeek[index];
-          newStudySessionsPerDay[day.getDay()] =
-            await getStudySessionPerDay(day);
-        }
-
-        if (cancelled) return;
-
-        if (groupSelected.length !== 0) {
-          let newStudySessionsPerDayFilter: any[] = [];
-
-          newStudySessionsPerDay.forEach((items, indexDay) => {
-            const newItems = items.filter((item: any) =>
-              groupSelected.includes(item.topic_id)
+          if (groupSelected.length !== 0) {
+            const newStudySessionsFilter = newStudySessions.filter(
+              (item: any) => groupSelected.includes(item.topic_id),
             );
-            newStudySessionsPerDayFilter[indexDay] = newItems;
-          });
+            setStudySessionsFilter(newStudySessionsFilter);
+          } else {
+            setStudySessionsFilter(newStudySessions);
+          }
+        };
 
-          setStudySessionsPerDayFilter(newStudySessionsPerDayFilter);
-        } else {
-          setStudySessionsPerDayFilter(newStudySessionsPerDay);
-        }
+        const getStudySessionsPerDay = async () => {
+          let newStudySessionsPerDay: any[] = [];
 
-        setStudySessionsPerDay(newStudySessionsPerDay);
+          const getStudySessionPerDay = async (day: any) =>
+            await fetchStudySessionsPerDay(String(session?.user.id), day);
+
+          for (let index = 0; index < currentWeek.length; index++) {
+            let day = currentWeek[index];
+            newStudySessionsPerDay[day.getDay()] =
+              await getStudySessionPerDay(day);
+          }
+
+          if (cancelled) return;
+
+          if (groupSelected.length !== 0) {
+            let newStudySessionsPerDayFilter: any[] = [];
+
+            newStudySessionsPerDay.forEach((items, indexDay) => {
+              const newItems = items.filter((item: any) =>
+                groupSelected.includes(item.topic_id),
+              );
+              newStudySessionsPerDayFilter[indexDay] = newItems;
+            });
+
+            setStudySessionsPerDayFilter(newStudySessionsPerDayFilter);
+          } else {
+            setStudySessionsPerDayFilter(newStudySessionsPerDay);
+          }
+
+          setStudySessionsPerDay(newStudySessionsPerDay);
+        };
+
+        const getTopicsUser = async () => {
+          const topics = await getTopicsOfaUser();
+          if (!cancelled) setTopics(topics);
+        };
+
+        await getStudySessions();
+        await getStudySessionsPerDay();
+        await getTopicsUser();
+      } catch (err) {
+        console.error("loadAll error:", err);
+      } finally {
+        if (!cancelled) setIsGridLoading(false);
       }
-
-      const getTopicsUser = async () => {
-        const topics = await getTopicsOfaUser();
-        if (!cancelled) setTopics(topics);
-      }
-
-      await getStudySessions();
-      await getStudySessionsPerDay();
-      await getTopicsUser();
-    } catch (err) {
-      console.error("loadAll error:", err);
-    } finally {
-      if (!cancelled) setIsGridLoading(false);
     }
-  }
 
-  loadAll();
+    loadAll();
 
-  return () => {
-    cancelled = true;
-  };
-}, [session, isPending, currentDate]);
-
+    return () => {
+      cancelled = true;
+    };
+  }, [session, isPending, currentDate]);
 
   useEffect(() => {
     setCurrentWeek(getCurrentWeek(currentDate));
@@ -290,7 +294,7 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
     const timeSlot = new Date(
       dateDuJour.getFullYear(),
       dateDuJour.getMonth(),
-      dateDuJour.getDay()
+      dateDuJour.getDay(),
     );
     timeSlot.setHours(index);
     timeSlots.push(timeSlot);
@@ -306,7 +310,7 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
     const newCurrentDate = new Date();
     setCurrentDate(newCurrentDate);
     setValueDatePicker(
-      parseDate(newCurrentDate.toISOString().substring(0, 10))
+      parseDate(newCurrentDate.toISOString().substring(0, 10)),
     );
   }
 
@@ -321,7 +325,7 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
     setCurrentDate(newCurrentDate);
     setCurrentWeek(getCurrentWeek(newCurrentDate));
     setValueDatePicker(
-      parseDate(newCurrentDate.toISOString().substring(0, 10))
+      parseDate(newCurrentDate.toISOString().substring(0, 10)),
     );
   }
 
@@ -336,7 +340,7 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
     setCurrentDate(newCurrentDate);
     setCurrentWeek(getCurrentWeek(newCurrentDate));
     setValueDatePicker(
-      parseDate(newCurrentDate.toISOString().substring(0, 10))
+      parseDate(newCurrentDate.toISOString().substring(0, 10)),
     );
   }
 
@@ -411,18 +415,20 @@ export default function Scheduler({ defaultDate }: { defaultDate: Date }) {
             showMonthAndYearPickers
             aria-label="Date (Show Month and Year Picker)"
             classNames={{
-              prevButton: "bg-default-200",       // Bouton précédent
-              nextButton: "bg-default-200",       // Bouton suivant
-              headerWrapper: "bg-white dark:bg-dark-bg [&::after]:hidden",     // Wrapper du header (mois + boutons)
-              header: "bg-default-200",             // Bandeau du header (mois affiché)
-              title: "bg-default-200",              // Texte du titre du mois
-              gridHeaderRow: "bg-white dark:bg-dark-bg",      // Ligne contenant S M T W T F S
-              gridHeaderCell: "bg-white dark:bg-dark-bg",     // Chaque jour de la semaine
-              pickerWrapper: "bg-white dark:bg-dark-bg",      // Wrapper du sélecteur mois/année
-              pickerMonthList: "bg-white dark:bg-dark-bg",    // Liste des mois
-              pickerYearList: "bg-white dark:bg-dark-bg",     // Liste des années
-              pickerHighlight: "bg-white dark:bg-dark-bg",    // Jour sélectionné
-              pickerItem: "bg-white dark:bg-dark-bg",         // Mois ou année sélectionné
+              base: "bg-white dark:bg-dark-bg shadow-none",
+              content: "bg-white dark:bg-dark-bg",
+              prevButton: "bg-default-200", // Bouton précédent
+              nextButton: "bg-default-200", // Bouton suivant
+              headerWrapper: "bg-white dark:bg-dark-bg [&::after]:hidden", // Wrapper du header (mois + boutons)
+              header: "bg-default-200", // Bandeau du header (mois affiché)
+              title: "bg-default-200", // Texte du titre du mois
+              gridHeaderRow: "bg-white dark:bg-dark-bg", // Ligne contenant S M T W T F S
+              gridHeaderCell: "bg-white dark:bg-dark-bg", // Chaque jour de la semaine
+              pickerWrapper: "bg-white dark:bg-dark-bg", // Wrapper du sélecteur mois/année
+              pickerMonthList: "bg-white dark:bg-dark-bg", // Liste des mois
+              pickerYearList: "bg-white dark:bg-dark-bg", // Liste des années
+              pickerHighlight: "bg-white dark:bg-dark-bg", // Jour sélectionné
+              pickerItem: "bg-white dark:bg-dark-bg", // Mois ou année sélectionné
               gridBody: "bg-white dark:bg-dark-bg",
             }}
             onChange={handleDateCalendarChange}
