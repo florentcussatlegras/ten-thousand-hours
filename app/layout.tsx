@@ -171,7 +171,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen bg-white dark:bg-dark-bg">
+          <div className="relative flex flex-col min-h-screen bg-white dark:bg-dark-bg">
             <NavBarPage />
             <main className="mx-auto pt-8 px-6 flex-grow w-full">
               <div className="container mx-auto max-w-[1536px]">
