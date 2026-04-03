@@ -293,8 +293,9 @@ export function CurrentStudySession() {
                     <h1>Nouvelle session de travail</h1>
                   </ModalHeader>
                   <ModalBody className="flex flex-col gap-2 w-full my-4">
-                    <div 
+                    <Form 
                       className="flex gap-8"
+                      onSubmit={(e) => e.preventDefault()}
                     >
                       <Input
                         type="hidden"
@@ -394,7 +395,7 @@ export function CurrentStudySession() {
                           Fermer
                         </Button>
                       </div>
-                    </div>
+                    </Form>
                   </ModalBody>
                 </>
               )}
