@@ -58,7 +58,7 @@ export default async function Page() {
 
   for (let index = 0; index < studyProcessesAchieved.length; index++) {
     const dateAchieved = await getLastStudySessionByStudyProcess(
-      studyProcessesAchieved[index].id
+      studyProcessesAchieved[index].id,
     );
     lastSessionDates.push({
       topic_name: studyProcessesAchieved[index].topic_name,
@@ -67,12 +67,18 @@ export default async function Page() {
   }
 
   return (
-     <div className="py-8 container mx-auto max-w-[1536px] space-y-8">
-      {/* Client Component pour la partie UI */}
-      <ProfileUI user={session.user} />
+    <div className="py-8 container mx-auto max-w-[1536px] space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        {/* Partie gauche : info user */}
+        <div className="lg:col-span-1">
+          <ProfileUI user={session.user} />
+        </div>
 
-      {/* Server Component pour MasteryPage / Prisma */}
-      <MasteryPage />
+        {/* Partie droite : Placeholder pour MasteryPage */}
+        <div className="lg:col-span-3">
+          <MasteryPage />
+        </div>
+      </div>
     </div>
   );
 }

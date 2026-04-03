@@ -21,9 +21,7 @@ type ProfileUIProps = {
 
 export default function ProfileUI({ user }: ProfileUIProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-      {/* Partie gauche : info user */}
-      <div className="lg:col-span-1">
+    <>
         <Card className="h-full rounded-2xl relative border-none bg-white dark:bg-content1">
           <CardBody className="flex-col items-center justify-center gap-4 my-4">
             {user.image ? (
@@ -56,19 +54,8 @@ export default function ProfileUI({ user }: ProfileUIProps) {
                 Admin Dashboard
               </Link>
             </Button>
-          </div>
+          </div>    
         )}
-      </div>
-
-      {/* Partie droite : Placeholder pour MasteryPage */}
-      <div className="lg:col-span-3">
-        <Card className="h-full rounded-2xl relative bg-white dark:bg-content1">
-          <CardBody className="flex-col items-center justify-center gap-4 my-4">
-            {/* MasteryPage reste Server Component dans page.tsx */}
-            <span className="text-gray-400">MasteryPage Server Component ici</span>
-          </CardBody>
-        </Card>
-      </div>
-    </div>
+    </>  
   );
 }
