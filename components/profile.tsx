@@ -5,7 +5,6 @@ import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import Avatar from "@/components/avatar";
 import { EditIcon } from "./icons";
-import MasteryPage from "@/app/mastery/page";
 
 type User = {
   id: string;
@@ -17,61 +16,58 @@ type User = {
 };
 
 type ProfileUIProps = {
-  session: {
-    user: User;
-  };
+  user: User;
 };
 
-export default function ProfileUI({ session }: ProfileUIProps) {
+export default function ProfileUI({ user }: ProfileUIProps) {
   return (
-    <div className="py-8 container mx-auto max-w-[1536px] space-y-8">
-      {session.user.role === "admin" && (
-        <div className="flex items-center gap-2">
-          <Button className="bg-sky-500">
-            <Link href="/admin/dashboard" className="text-white">
-              Admin Dashboard
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      {/* Partie gauche : info user */}
+      <div className="lg:col-span-1">
+        <Card className="h-full rounded-2xl relative border-none bg-white dark:bg-content1">
+          <CardBody className="flex-col items-center justify-center gap-4 my-4">
+            {user.image ? (
+              <Avatar imgSrc={user.image} />
+            ) : (
+              <div className="size-26 border-3 border-primary rounded-full bg-sky-500 flex items-center justify-center">
+                <span className="uppercase text-lg font-bold">
+                  {user.firstname.slice(0, 2)}
+                </span>
+              </div>
+            )}
+            <span className="text-xl text-default-600 font-medium">
+              {user.firstname} {user.name}
+            </span>
+            <span className="font-light text-md text-sky-500">{user.email}</span>
+            <span className="font-light text-sm text-default-400">
+              Développeur Full Stack
+            </span>
+
+            <Link href="/settings">
+              <EditIcon className="text-default-600" />
             </Link>
-          </Button>
-        </div>
-      )}
+          </CardBody>
+        </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-1">
-          <Card className="h-full rounded-2xl relative border-none bg-white dark:bg-content1">
-            <CardBody className="flex-col items-center justify-center gap-4 my-4">
-              {session?.user.image ? (
-                <Avatar imgSrc={session?.user.image} />
-              ) : (
-                <div className="size-26 border-3 border-primary rounded-full bg-sky-500 text-primary-foreground flex items-center justify-center">
-                  <span className="uppercase text-lg font-bold">
-                    {session?.user.firstname.slice(0, 2)}
-                  </span>
-                </div>
-              )}
-              <span className="text-xl text-default-600 font-medium">
-                {session.user.firstname} {session.user.name}
-              </span>
-              <span className="font-light text-md text-sky-500">
-                {session.user.email}
-              </span>
-              <span className="font-light text-sm text-default-400">
-                Développeur Full Stack
-              </span>
-
-              <Link href="/settings">
-                <EditIcon className="text-default-600" />
+        {user.role === "admin" && (
+          <div className="flex items-center gap-2 mt-4">
+            <Button className="bg-sky-500">
+              <Link href="/admin/dashboard" className="text-white">
+                Admin Dashboard
               </Link>
-            </CardBody>
-          </Card>
-        </div>
+            </Button>
+          </div>
+        )}
+      </div>
 
-        <div className="lg:col-span-3">
-          <Card className="h-full rounded-2xl relative bg-white dark:bg-content1">
-            <CardBody className="flex-col items-center justify-center gap-4 my-4">
-              <MasteryPage />
-            </CardBody>
-          </Card>
-        </div>
+      {/* Partie droite : Placeholder pour MasteryPage */}
+      <div className="lg:col-span-3">
+        <Card className="h-full rounded-2xl relative bg-white dark:bg-content1">
+          <CardBody className="flex-col items-center justify-center gap-4 my-4">
+            {/* MasteryPage reste Server Component dans page.tsx */}
+            <span className="text-gray-400">MasteryPage Server Component ici</span>
+          </CardBody>
+        </Card>
       </div>
     </div>
   );

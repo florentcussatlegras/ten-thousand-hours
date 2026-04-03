@@ -9,6 +9,7 @@ import {
   getStudyProcessesAchieved,
 } from "../actions/actions";
 import ProfileUI from "@/components/profile";
+import MasteryPage from "../mastery/page";
 
 export default async function Page() {
   const headerList = await headers();
@@ -66,6 +67,12 @@ export default async function Page() {
   }
 
   return (
-    <ProfileUI session={session} />
+     <div className="py-8 container mx-auto max-w-[1536px] space-y-8">
+      {/* Client Component pour la partie UI */}
+      <ProfileUI user={session.user} />
+
+      {/* Server Component pour MasteryPage / Prisma */}
+      <MasteryPage />
+    </div>
   );
 }
