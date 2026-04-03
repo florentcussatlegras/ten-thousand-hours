@@ -354,6 +354,7 @@ export function CurrentStudySession() {
                           />
                         }
                         variant="bordered"
+                        value={currentTopicName}
                         onInputChange={handleTopicChange}
                       >
                         {(item: any) => (
