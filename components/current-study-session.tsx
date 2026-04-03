@@ -293,18 +293,7 @@ export function CurrentStudySession() {
                     <h1>Nouvelle session de travail</h1>
                   </ModalHeader>
                   <ModalBody className="flex flex-col gap-2 w-full my-4">
-                    <Form
-                      // action={formLaunchCurrentSessionAction}
-                      className="flex gap-8"
-                    >
-                      {/* {formLaunchCurrentSessionState.errors._form ? (
-                        <div className="text-danger text-sm">
-                          {formLaunchCurrentSessionState.errors._form?.join(
-                            ", "
-                          )}
-                        </div>
-                      ) : null} */}
-
+                    <Form className="flex gap-8">
                       <Input
                         type="hidden"
                         name="topicId"
