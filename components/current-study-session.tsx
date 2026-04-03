@@ -287,7 +287,7 @@ export function CurrentStudySession() {
             size="xl"
           >
             <ModalContent className="bg-white dark:bg-dark-bg">
-              {(onClose) => (
+              {/* {(onClose) => (
                 <>
                   <ModalHeader className="flex flex-col gap-1 w-full mt-4">
                     <h1>Nouvelle session de travail</h1>
@@ -395,7 +395,114 @@ export function CurrentStudySession() {
                     </Form>
                   </ModalBody>
                 </>
-              )}
+              )} */}
+              <>
+                <ModalHeader className="flex flex-col gap-1 w-full mt-4">
+                  <h1>Nouvelle session de travail</h1>
+                </ModalHeader>
+                <ModalBody className="flex flex-col gap-2 w-full my-4">
+                  <Form className="flex gap-8">
+                    <Input
+                      type="hidden"
+                      name="topicId"
+                      value={currentTopicId}
+                    />
+                    <Input
+                      type="hidden"
+                      name="startedAt"
+                      value={String(hoursStartedAt)}
+                    />
+                    <Autocomplete
+                      aria-label="Selectionner une matière"
+                      //   inputValue={currentTopicName}
+                      classNames={{
+                        base: "max-w-full mb-8",
+                        listboxWrapper: "max-h-[320px]",
+                        selectorButton: "text-default-500",
+                      }}
+                      defaultItems={topics}
+                      inputProps={{
+                        classNames: {
+                          input: "ml-4 text-base text-default-600",
+                          inputWrapper:
+                            "h-[60px] border-1 border-default-100 shadow-lg dark:bg-content1",
+                        },
+                      }}
+                      listboxProps={{
+                        hideSelectedIcon: true,
+                        itemClasses: {
+                          base: [
+                            "rounded-medium",
+                            "text-default-500",
+                            "transition-opacity",
+                            "data-[hover=true]:text-foreground",
+                            "dark:data-[hover=true]:bg-default-50",
+                            "data-[pressed=true]:opacity-70",
+                            "data-[hover=true]:bg-default-200",
+                            "data-[selectable=true]:focus:bg-default-100",
+                            "data-[focus-visible=true]:ring-default-500",
+                          ],
+                        },
+                      }}
+                      placeholder="Exple: javascript, mongodb..."
+                      popoverProps={{
+                        offset: 10,
+                        classNames: {
+                          base: "rounded-large",
+                          content:
+                            "p-1 border-small border-default-100 bg-background",
+                        },
+                      }}
+                      radius="full"
+                      startContent={
+                        <SearchIcon
+                          className="text-default-400"
+                          size={20}
+                          strokeWidth={2.5}
+                        />
+                      }
+                      variant="bordered"
+                  
+                    >
+                      {(item: any) => (
+                        <AutocompleteItem
+                          key={item.topic_id}
+                          textValue={item.topic_name}
+                        >
+                          <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center">
+                              <div className="flex flex-col">
+                                <span className="text-base">
+                                  {item.topic_name}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </AutocompleteItem>
+                      )}
+                    </Autocomplete>
+
+                    <div className="flex flex-row gap-2">
+                      <Button
+                        type="button"
+                        className="bg-sky-500 text-white"
+                        onPress={handleLaunchSession}
+                        isDisabled={currentTopicId === ""}
+                      >
+                        Lancer la session
+                      </Button>
+                      <Button
+                        color="danger"
+                        variant="light"
+                        onPress={modal1.onClose}
+                        className="dark:text-white"
+                      >
+                        Fermer
+                      </Button>
+                    </div>
+                  </Form>
+                </ModalBody>
+              </>
             </ModalContent>
           </Modal>
         </>
