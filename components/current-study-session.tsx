@@ -283,10 +283,10 @@ export function CurrentStudySession() {
           </Button>
           <Modal
             isOpen={modal1.isOpen}
-            onOpenChange={(open) => {
-              if (!open) modal1.onClose();
-            }}
+            onOpenChange={modal1.onOpenChange}
             size="xl"
+            isDismissable={false}
+            isKeyboardDismissDisabled={true}
           >
             <ModalContent className="bg-white dark:bg-dark-bg">
               {(onClose) => (
