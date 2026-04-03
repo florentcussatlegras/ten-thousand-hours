@@ -7,7 +7,6 @@ import { Button } from "@heroui/button";
 import { UpdateUserForm } from "@/components/update-user-form";
 import { ChangePasswordForm } from "@/components/change-password-form";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { EditIcon } from "@/components/icons";
 import StudiesProgressBar from "@/components/list-studies-progress-bar";
 import prisma from "../lib/prisma";
