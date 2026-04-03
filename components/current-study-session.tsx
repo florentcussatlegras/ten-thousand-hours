@@ -243,15 +243,16 @@ export function CurrentStudySession() {
   };
 
   function handleTopicChange(value: any) {
-    if (value === "") {
-      setCurrentTopicId("");
-    } else {
-      setCurrentTopicId(
-        topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
-      );
-    }
-    setCurrentTopicName(value);
-    localStorage.setItem("current_study_session_topic_name", value);
+    console.log(topics.filter((topic: any) => topic.topic_name === value)[0].topic_id);
+    // if (value === "") {
+    //   setCurrentTopicId("");
+    // } else {
+    //   setCurrentTopicId(
+    //     topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
+    //   );
+    // }
+    // setCurrentTopicName(value);
+    // localStorage.setItem("current_study_session_topic_name", value);
   }
 
   function onValidate() {
