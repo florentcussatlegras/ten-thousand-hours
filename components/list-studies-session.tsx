@@ -53,7 +53,6 @@ import {
   PlusIcon,
   VerticalDotsIcon,
 } from "./icons";
-import { PrismaClient } from "@prisma/client/scripts/default-index";
 import Link from "next/link";
 import ModalStudySessionView from "./modal-study-session-view";
 import { EditIcon } from "./icons";
