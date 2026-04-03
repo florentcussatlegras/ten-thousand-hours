@@ -243,16 +243,15 @@ export function CurrentStudySession() {
   };
 
   function handleTopicChange(value: any) {
-    console.log(topics.filter((topic: any) => topic.topic_name === value)[0].topic_id);
-    // if (value === "") {
-    //   setCurrentTopicId("");
-    // } else {
-    //   setCurrentTopicId(
-    //     topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
-    //   );
-    // }
-    // setCurrentTopicName(value);
-    // localStorage.setItem("current_study_session_topic_name", value);
+    if (value === "") {
+      setCurrentTopicId("");
+    } else {
+      setCurrentTopicId(
+        topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
+      );
+    }
+    setCurrentTopicName(value);
+    localStorage.setItem("current_study_session_topic_name", value);
   }
 
   function onValidate() {
@@ -362,25 +361,16 @@ export function CurrentStudySession() {
                           <AutocompleteItem
                             key={item.topic_id}
                             textValue={item.topic_name}
+                            onClick={(e) => e.stopPropagation()}
                           >
                             <div className="flex justify-between items-center">
                               <div className="flex gap-2 items-center">
-                                {/* <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} /> */}
                                 <div className="flex flex-col">
                                   <span className="text-base">
                                     {item.topic_name}
                                   </span>
-                                  {/* <span className="text-tiny text-default-400">{item.team}</span> */}
                                 </div>
                               </div>
-                              {/* <Button
-                                                        className="border-small mr-0.5 font-medium shadow-small"
-                                                        radius="full"
-                                                        size="sm"
-                                                        variant="bordered"
-                                                        >
-                                                        Add
-                                                        </Button> */}
                             </div>
                           </AutocompleteItem>
                         )}
