@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
 import {
   Divider,
   Progress,
