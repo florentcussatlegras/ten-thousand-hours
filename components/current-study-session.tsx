@@ -76,13 +76,13 @@ export function CurrentStudySession() {
 
     if (localStorage.getItem("current_study_session_timer")) {
       setTime(
-        JSON.parse(String(localStorage.getItem("current_study_session_timer")))
+        JSON.parse(String(localStorage.getItem("current_study_session_timer"))),
       );
       setCurrentTopicId(
-        String(localStorage.getItem("current_study_session_topic_id"))
+        String(localStorage.getItem("current_study_session_topic_id")),
       );
       setHoursStartedAt(
-        Number(localStorage.getItem("current_study_session_started_at"))
+        Number(localStorage.getItem("current_study_session_started_at")),
       );
       if (localStorage.getItem("current_study_session_is_playing") === "true") {
         let id = setInterval(updateTimer, 1000);
@@ -137,7 +137,7 @@ export function CurrentStudySession() {
       }
       localStorage.setItem(
         "current_study_session_timer",
-        JSON.stringify(newTime)
+        JSON.stringify(newTime),
       );
       return newTime;
     });
@@ -175,7 +175,7 @@ export function CurrentStudySession() {
     // Passe directement maintenant à la server action
     const alreadyExists = await checkCurrentStudySessionAction(
       studyProcess.id,
-      checkDate
+      checkDate,
     );
 
     if (alreadyExists) {
@@ -189,11 +189,11 @@ export function CurrentStudySession() {
     if (!localStorage.getItem("current_study_session_topic_id")) {
       localStorage.setItem(
         "current_study_session_topic_id",
-        String(currentTopicId)
+        String(currentTopicId),
       );
       localStorage.setItem(
         "current_study_session_started_at",
-        String(new Date().getTime())
+        String(new Date().getTime()),
       );
       const newTime = {
         sec: 0,
@@ -203,7 +203,7 @@ export function CurrentStudySession() {
       setTime(newTime);
       localStorage.setItem(
         "current_study_session_timer",
-        JSON.stringify(newTime)
+        JSON.stringify(newTime),
       );
       localStorage.setItem("current_study_session_is_playing", "true");
     }
@@ -247,7 +247,7 @@ export function CurrentStudySession() {
       setCurrentTopicId("");
     } else {
       setCurrentTopicId(
-        topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
+        topics.filter((topic: any) => topic.topic_name === value)[0].topic_id,
       );
     }
     setCurrentTopicName(value);
@@ -257,7 +257,7 @@ export function CurrentStudySession() {
   function onValidate() {
     localStorage.setItem(
       "current_study_session_finished_at",
-      String(new Date().getTime())
+      String(new Date().getTime()),
     );
     clearInterval(intervalId);
     setIntervalId("");
@@ -283,7 +283,9 @@ export function CurrentStudySession() {
           </Button>
           <Modal
             isOpen={modal1.isOpen}
-            onOpenChange={modal1.onOpenChange}
+            onOpenChange={(open) => {
+              if (!open) modal1.onClose();
+            }}
             size="xl"
           >
             <ModalContent className="bg-white dark:bg-dark-bg">
@@ -293,7 +295,7 @@ export function CurrentStudySession() {
                     <h1>Nouvelle session de travail</h1>
                   </ModalHeader>
                   <ModalBody className="flex flex-col gap-2 w-full my-4">
-                    <Form 
+                    <Form
                       className="flex gap-8"
                       onSubmit={(e) => e.preventDefault()}
                     >
@@ -357,7 +359,6 @@ export function CurrentStudySession() {
                           />
                         }
                         variant="bordered"
-                   
                       >
                         {(item: any) => (
                           <AutocompleteItem
@@ -443,7 +444,7 @@ export function CurrentStudySession() {
                       Vous avez une session en cours en{" "}
                       <span className="text-sky-500">
                         {localStorage.getItem(
-                          "current_study_session_topic_name"
+                          "current_study_session_topic_name",
                         )}
                       </span>
                     </div>
@@ -457,10 +458,10 @@ export function CurrentStudySession() {
                         new Date().setTime(
                           Number(
                             localStorage.getItem(
-                              "current_study_session_started_at"
-                            )
-                          )
-                        )
+                              "current_study_session_started_at",
+                            ),
+                          ),
+                        ),
                       )}{" "}
                       à{" "}
                       {new Intl.DateTimeFormat("fr-Fr", {
@@ -469,10 +470,10 @@ export function CurrentStudySession() {
                         new Date().setTime(
                           Number(
                             localStorage.getItem(
-                              "current_study_session_started_at"
-                            )
-                          )
-                        )
+                              "current_study_session_started_at",
+                            ),
+                          ),
+                        ),
                       )}
                     </div>
                     <div className="text-3xl flex items-center gap-4 bg-success rounded-full text-white font-semibold py-2 w-[340px]">
