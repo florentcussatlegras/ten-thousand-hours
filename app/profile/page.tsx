@@ -66,7 +66,6 @@ export default async function Page() {
   }
 
   return (
-    <div>foo</div>
-    // <ProfileUI session={session} />
+    <ProfileUI session={session} />
   );
 }
