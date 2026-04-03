@@ -354,13 +354,12 @@ export function CurrentStudySession() {
                           />
                         }
                         variant="bordered"
-                        onInputChange={handleTopicChange}
+                   
                       >
                         {(item: any) => (
                           <AutocompleteItem
                             key={item.topic_id}
                             textValue={item.topic_name}
-                            onClick={(e) => e.stopPropagation()}
                           >
                             <div className="flex justify-between items-center">
                               <div className="flex gap-2 items-center">
