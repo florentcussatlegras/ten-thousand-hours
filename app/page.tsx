@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <section className="flex items-center h-full justify-center gap-4 bg-white dark:bg-dark-bg w-full p-0 m-0">
-      <div className="flex flex-row w-full h-full items-stretch justify-between">
+      <div className="flex flex-row w-full items-center justify-between">
         <div className="hidden xl:w-1/2 items-center xl:flex justify-center"> 
           {/* Dark */}
           <div className="block">
