@@ -7,7 +7,7 @@ import { Button } from "@heroui/button";
 import { UpdateUserForm } from "@/components/update-user-form";
 import { ChangePasswordForm } from "@/components/change-password-form";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+// import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
 import { EditIcon } from "@/components/icons";
 import StudiesProgressBar from "@/components/list-studies-progress-bar";
 import prisma from "../lib/prisma";
@@ -92,7 +92,7 @@ export default async function Page() {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-1">
+        {/* <div className="lg:col-span-1">
           <Card className="h-full rounded-2xl relative border-none bg-white dark:bg-content1">
             <CardBody className="flex-col items-center justify-center gap-4 my-4">
               {session?.user.image ? (
@@ -127,7 +127,7 @@ export default async function Page() {
               <MasteryPage />
             </CardBody>
           </Card>
-        </div>
+        </div> */}
       </div>
     </div>
   );
