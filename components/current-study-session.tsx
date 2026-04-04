@@ -61,6 +61,7 @@ export function CurrentStudySession() {
             isOpen={modal1.isOpen}
             onOpenChange={modal1.onOpenChange}
             size="xl"
+            isDismissable={false}
           >
             <ModalContent className="bg-white dark:bg-dark-bg">
               {(onClose) => (
