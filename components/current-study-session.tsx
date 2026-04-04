@@ -31,10 +31,6 @@ export function CurrentStudySession() {
   const modal1 = useDisclosure();
 
   const [topics, setTopics] = useState<any>([]);
-  const [currentTopicId, setCurrentTopicId] = useState("");
-  const [currentTopicName, setCurrentTopicName] = useState();
-
-  const [hoursStartedAt, setHoursStartedAt] = useState(0);
 
   useEffect(() => {
     async function getTopics() {
@@ -66,7 +62,7 @@ export function CurrentStudySession() {
               {(onClose) => (
                 <>
                   <ModalHeader className="flex flex-col gap-1 w-full mt-4">
-                    <h1>Nouvelle session de travail test</h1>
+                    <h1>Nouvelle session de travail test 2</h1>
                   </ModalHeader>
                   <ModalBody className="flex flex-col gap-2 w-full my-4">
                     <Form className="flex gap-8">
