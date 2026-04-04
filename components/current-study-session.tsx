@@ -110,7 +110,6 @@ export function CurrentStudySession() {
                           />
                         }
                         variant="bordered"
-                        onInputChange={handleTopicChange}
                       >
                         {(item: any) => (
                           <AutocompleteItem
