@@ -182,7 +182,7 @@ export default function ListStudiesSession({
               </DropdownTrigger>
               <DropdownMenu
                 classNames={{
-                  base: "bg-white dark:bg-content1",
+                  base: "bg-white dark:bg-content1 border-none shadow-none",
                 }}
               >
                 <DropdownItem key="view">
