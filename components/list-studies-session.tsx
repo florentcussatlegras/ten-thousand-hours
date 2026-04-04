@@ -176,7 +176,7 @@ export default function ListStudiesSession({
           <div className="relative flex justify-end items-center gap-2 w-3/5">
             <Dropdown
               classNames={{
-                content: "bg-white border-none shadow-none",
+                content: "bg-white dark:bg-content1 border-none shadow-none",
               }}
             >
               <DropdownTrigger>
