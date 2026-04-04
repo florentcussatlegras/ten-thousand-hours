@@ -93,18 +93,19 @@ export default function ListStudiesSession({
   studyProcessId,
   studySessions,
 }: {
-  onEditClick: any,
-  studyProcessId: String,
+  onEditClick: any;
+  studyProcessId: String;
   studySessions: StudySession[];
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [studySessionToView, setStudySessionToView] = React.useState<StudySession>();
+  const [studySessionToView, setStudySessionToView] =
+    React.useState<StudySession>();
 
   const [filterValue, setFilterValue] = React.useState(null);
   const [filteredItems, setFilteredItems] = React.useState(studySessions);
   const [selectedKeys, setSelectedKeys] = React.useState<any>(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(
-    new Set(INITIAL_VISIBLE_COLUMNS)
+    new Set(INITIAL_VISIBLE_COLUMNS),
   );
   const [statusFilter, setStatusFilter] = React.useState<String>("all");
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -120,7 +121,7 @@ export default function ListStudiesSession({
     if (String(visibleColumns) === "all") return columns;
 
     return columns.filter((column) =>
-      Array.from(visibleColumns).includes(column.uid)
+      Array.from(visibleColumns).includes(column.uid),
     );
   }, [visibleColumns]);
 
@@ -179,14 +180,18 @@ export default function ListStudiesSession({
                   <VerticalDotsIcon size={24} width={24} height={24} />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
+              <DropdownMenu
+                classNames={{
+                  base: "bg-red-500",
+                }}
+              >
                 <DropdownItem key="view">
                   <button
                     onClick={() => handleOpenModalView(studySession)}
                     className="p-0 h-[20px] flex flex-row gap-2 items-center cursor-pointer"
                   >
                     <EyeIcon />
-                    <span>Voir les détails 2</span>
+                    <span>Voir les détails</span>
                   </button>
                 </DropdownItem>
                 <DropdownItem
@@ -355,7 +360,10 @@ export default function ListStudiesSession({
   }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
 
   return (
-    <Card radius="none" className="w-full lg:w-2/3 px-6 py-8 rounded-2xl bg-white dark:bg-content1">
+    <Card
+      radius="none"
+      className="w-full lg:w-2/3 px-6 py-8 rounded-2xl bg-white dark:bg-content1"
+    >
       <div>
         <ModalStudySessionView
           isOpen={isOpen}
@@ -371,7 +379,7 @@ export default function ListStudiesSession({
         classNames={{
           wrapper: "p-0",
           thead: "[&>tr[aria-hidden=true]]:hidden",
-          tbody: "bg-white dark:bg-dark-bg",          
+          tbody: "bg-white dark:bg-dark-bg",
           th: "text-sm border-b-0",
           td: "text-sm",
         }}
