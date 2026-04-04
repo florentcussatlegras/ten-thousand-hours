@@ -186,7 +186,7 @@ export default function ListStudiesSession({
                     className="p-0 h-[20px] flex flex-row gap-2 items-center cursor-pointer"
                   >
                     <EyeIcon />
-                    <span>Voir les détails</span>
+                    <span>Voir les détails 2</span>
                   </button>
                 </DropdownItem>
                 <DropdownItem
