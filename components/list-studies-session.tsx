@@ -174,7 +174,11 @@ export default function ListStudiesSession({
       case "actions":
         return (
           <div className="relative flex justify-end items-center gap-2 w-3/5">
-            <Dropdown>
+            <Dropdown
+              classNames={{
+                content: "bg-white border-none shadow-none",
+              }}
+            >
               <DropdownTrigger>
                 <Button isIconOnly size="sm" variant="light">
                   <VerticalDotsIcon size={24} width={24} height={24} />
