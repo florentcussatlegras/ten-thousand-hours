@@ -47,21 +47,8 @@ export function CurrentStudySession() {
     modal1.onClose();
   }, []);
 
-  function handleTopicChange(value: any) {
-    if (value === "") {
-      setCurrentTopicId("");
-    } else {
-      setCurrentTopicId(
-        topics.filter((topic: any) => topic.topic_name === value)[0].topic_id
-      );
-    }
-    setCurrentTopicName(value);
-    localStorage.setItem("current_study_session_topic_name", value);
-  }
-
   return (
     <div className="mr-4">
-      
         <>
           <Button
             onPress={modal1.onOpen}
@@ -101,15 +88,7 @@ export function CurrentStudySession() {
                         }}
                         placeholder="Exple: javascript, mongodb..."
                        
-                        radius="full"
-                        startContent={
-                          <SearchIcon
-                            className="text-default-400"
-                            size={20}
-                            strokeWidth={2.5}
-                          />
-                        }
-                        variant="bordered"
+                        
                       >
                         {(item: any) => (
                           <AutocompleteItem
